@@ -188,6 +188,9 @@ body{
     color: rgb(209, 209, 209);
     border-width: 1px;
     margin-top: 10px;
+    
+    margin-left: auto;
+    margin-right: auto;
 }
 #name:focus , #email:focus , #github:focus {
     outline: none; 
@@ -199,9 +202,18 @@ body{
     margin-top: 20px;
     position: relative;
     z-index: 10;
-    align-items: center;
-    
+    width: 390px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.email-cont label, .github-info-cont label, .name-container label {
+    font-family: 'inconsolata-Regular', sans-serif;
+    font-size: 16px;
+    color: rgb(222, 222, 222);
+    text-align: left;
+}
+
 .generate-btn{
     margin-top: 30px;
     width: 390px;
