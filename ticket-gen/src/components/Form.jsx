@@ -1,7 +1,30 @@
-import React from 'react'
+import {useState} from 'react'
 import uploadIcon from '../assets/images/icon-upload.svg'
 
+
 const Form = () => {
+
+    const [name, setName] = useState(" ")
+    const [email, setEmail] = useState(" ")
+    const [github, setGithub] = useState(" ")
+    const [file, setFile] = useState(null)
+
+    const handleNameChange = (e) => {
+        setName(e.target.value)
+    }
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value)
+    }
+
+    const handleGithubChange = (e) => {
+        setGithub(e.target.value)
+    }
+
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0])
+    }
+
     const styles ={
         color: 'rgb(204, 203, 203)',
         fontFamily: "'inconsolata-Medium', 'sans-serif'"
@@ -30,19 +53,19 @@ const Form = () => {
 
             <div className="name-container">
               <label htmlFor="name">Full Name</label>
-              <input type="text" id="name" name="name"/>
+              <input type="text" id="name" name="name" value={name} onChange={handleNameChange}/>
               <div className="error"></div>
             </div> 
 
             <div className="email-cont">
               <label htmlFor="email">Email Address</label>
-              <input type="email" placeholder="example@email.com" id="email" name="email"/>
+              <input type="email" placeholder="example@email.com" id="email" name="email" value={email} onChange={handleEmailChange}/>
               <div className="error"></div>
             </div>
 
             <div className="github-info-cont">
               <label htmlFor="github">GitHub Username</label>
-              <input type="text" placeholder="@yourusername" id="github" name="github"/>
+              <input type="text" placeholder="@yourusername" id="github" name="github" value={github} onChange={handleGithubChange}/>
               <div className="error"></div>
             </div>
 
