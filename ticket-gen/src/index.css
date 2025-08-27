@@ -1,0 +1,258 @@
+body{
+    padding: 0;
+    margin: 0;
+    background: url(assets/images/background-desktop.png);
+    color: white;
+    position: relative;
+    background-size: cover;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    /* overflow-y: auto; */
+}
+@font-face {
+    font-family: 'inconsolata-Bold';
+    src: url(./assets/fonts/static/Inconsolata-Bold.ttf) format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'inconsolata-Regular';
+    src: url(./assets/fonts/static/Inconsolata-Regular.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'inconsolata-Medium';
+    src: url(./assets/fonts/static/Inconsolata-Medium.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'inconsolata-Variable';
+    src: url(./assets/fonts/Inconsolata-VariableFont_wdth\,wght.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+.layout-wrapper{
+    position: relative;
+    min-height: 100vh;
+}
+.pattern1{
+    position: absolute;
+    background-image: url(assets/images/pattern-lines.svg);
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+}
+.pattern2{
+    position: absolute;
+    background-image: url(assets/images/pattern-squiggly-line-bottom-desktop.svg);
+    z-index: 1;
+    bottom: -20px;
+    width: 60%;
+    height: 60%;
+}
+.pattern3{
+    position: absolute;
+    background-image: url(assets/images/pattern-squiggly-line-top.svg);
+    z-index: 1;
+    width: 51%;
+    height: 35%;
+    transform: translateX(40%);
+    right: 0;
+    top: 80px;
+}
+.pattern4{
+    position: absolute;
+    background-image: url(assets/images/pattern-circle.svg);
+    width: 217px;
+    height: 217px;
+    z-index: 1;
+    left: 55px;
+    top: -80px;
+}
+.pattern5{
+    position: absolute;
+    z-index: 1;
+    background-image: url(assets/images/pattern-circle.svg);
+    right: 280px;
+    bottom: 90px;
+    width: 217px;
+    height: 217px;
+}
+.logo-cont{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+}
+.logo-cont img{
+    margin-top: 40px;
+}
+.ticket{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title-cont{
+    text-align: center;
+    margin-top: 20px;
+}
+.title-cont span{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700; 
+    font-size: 40px;  
+    line-height: 1.2;
+    margin: 0 0 20px 0; 
+    word-spacing: 10px;
+    font-family: 'inconsolata-Medium', sans-serif;
+    
+}
+.title-cont p{
+  font-weight: 800; 
+  font-size: 48px;  
+  line-height: 1.2; 
+  margin: 0 0 6px 0;
+    word-spacing: 8px;
+    font-family: 'inconsolata-Bold', sans-serif;
+}
+.tagline {
+  text-align: center;
+  margin-top: -7px;
+  font-family: 'inconsolata-Light';
+  letter-spacing: 2.5px;
+}
+.upload-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.upload-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 2px dashed #9d9d9d;
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+  width: 350px;
+  height: 50px;
+  background-color: rgba(255,255,255,0.05);
+}
+
+.upload-label img {
+  width: 40px;
+  height: 40px;
+}
+
+.upload-label span {
+  font-family: 'inconsolata-Regular', sans-serif;
+  font-size: 14px;
+  text-align: center;
+}
+
+#file-upload {
+  display: none; /* hides the actual file input */
+}
+.name-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  position: relative;
+    z-index: 10;
+}
+#name , #email , #github {
+    padding: 12px;
+    margin-top: 5px;
+    width: 370px;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.05);
+    border-color: rgba(255, 253, 253, 0.694);
+    /* border-style: solid; */
+    color: rgb(209, 209, 209);
+    border-width: 1px;
+    margin-top: 10px;
+}
+#name:focus , #email:focus , #github:focus {
+    outline: none; 
+    border: 2px solid rgba(248, 242, 242, 0.694); 
+}
+.email-cont , .github-info-cont , .name-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    position: relative;
+    z-index: 10;
+    align-items: center;
+    
+}
+.generate-btn{
+    margin-top: 30px;
+    width: 390px;
+    padding: 12px;
+    background-color: rgb(228, 121, 89);
+    border: none;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    font-family: 'inconsolata-Bold', sans-serif;
+    font-size: 18px;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+}
+.error .error{
+    color: rgb(255, 111, 0);
+    font-family: 'inconsolata-Regular', sans-serif;
+    margin-top: 5px;
+    font-size: 12px;
+}
+.error #name , .error #email , .error #github {
+    border: 1px solid rgb(228, 121, 89);
+}
+#name:hover , #email:hover , #github:hover , #file-upload:hover {
+    background-color: rgba(128, 128, 128, 0.413);
+    cursor: pointer;
+    transition: 0.3s ease-in-out; 
+}
+
+/* style 2 */
+.upload-info{
+    margin-top: 10px;
+}
+.upload-label.dragover {
+    background-color: rgba(239, 239, 239, 0.05);
+    
+}
+.file-preview {
+  display: block;
+  max-width: 120px;
+  margin: 12px auto 0;
+  border-radius: 8px;
+  z-index: 5; /* make sure it sits above */
+  position: relative; /* ensure stacking works */
+}
+
+.file-name {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: #444;
+  position: relative;
+  z-index: 5;
+}
