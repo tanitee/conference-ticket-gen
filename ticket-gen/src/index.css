@@ -129,7 +129,7 @@ body{
 .tagline {
   text-align: center;
   margin-top: -7px;
-  font-family: 'inconsolata-Light';
+  font-family: 'inconsolata-Regular';
   letter-spacing: 2.5px;
 }
 .upload-container{
@@ -196,6 +196,7 @@ body{
     outline: none; 
     border: 2px solid rgba(248, 242, 242, 0.694); 
 }
+
 .email-cont , .github-info-cont , .name-container {
     display: flex;
     flex-direction: column;
@@ -228,15 +229,10 @@ body{
     z-index: 10;
     cursor: pointer;
 }
-.error .error{
-    color: rgb(255, 111, 0);
-    font-family: 'inconsolata-Regular', sans-serif;
-    margin-top: 5px;
-    font-size: 12px;
+.generate-btn:hover{
+  background-color: rgb(228, 110, 74);
 }
-.error #name , .error #email , .error #github {
-    border: 1px solid rgb(228, 121, 89);
-}
+
 #name:hover , #email:hover , #github:hover , #file-upload:hover {
     background-color: rgba(128, 128, 128, 0.413);
     cursor: pointer;
@@ -247,24 +243,30 @@ body{
 .upload-info{
     margin-top: 10px;
 }
-.upload-label.dragover {
-    background-color: rgba(239, 239, 239, 0.05);
-    
-}
-.file-preview {
-  display: block;
-  max-width: 120px;
-  margin: 12px auto 0;
-  border-radius: 8px;
-  z-index: 5; /* make sure it sits above */
-  position: relative; /* ensure stacking works */
-}
+ 
 
-.file-name {
+/* .file-name {
   margin-top: 12px;
   text-align: center;
   font-size: 14px;
   color: #444;
   position: relative;
   z-index: 5;
+} */
+.error-border{
+    border: 1px solid rgb(228, 121, 89) !important;
+}
+.error-message{
+    color: rgb(255, 111, 0);
+    font-family: 'inconsolata-Regular', sans-serif;
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: left;
+    display: flex;
+    gap: 6px;
+    line-height: 1.4;
+}
+
+.icon-img{
+    flex-shrink: 0;
 }
