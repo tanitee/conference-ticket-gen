@@ -4,12 +4,27 @@ import {useForm} from 'react-hook-form'
 import iconInfo from '../assets/images/icon-info.svg'
 
 const Form = () => {
-    const { register, handleSubmit, formState: { errors }} = useForm();
+    const { register, handleSubmit, formState: { errors } , watch} = useForm();
+    const [preview, setPreview] = useState(null)
 
-    //console.log(register)
+    const file = watch("file")
+
+    useEffect(()=>{
+     if(file && file[0]){ 
+      const objectUrl = URL.createObjectURL(file[0])
+      setPreview(objectUrl)
+
+      //clean up the object URL after component unmounts
+      return () => URL.revokeObjectURL(objectUrl);
+      }
+
+    }, [file])
+
+
 
     const validateForm = (data)=>{
       console.log(data);
+      //console.log("Uploaded file:", data.file[0])
     }
 
     const styles ={
@@ -17,8 +32,12 @@ const Form = () => {
         fontFamily: "'inconsolata-Medium', 'sans-serif'"
     }
     const style2={
-        marginRight: '297px'
+        marginRight: '297px',
+        fontFamily: "'inconsolata-Regular' , 'sans-serif'",
+        color:'#dedede'
     }
+    
+    
 
   return (
     <>
@@ -26,11 +45,25 @@ const Form = () => {
           
           <div className="upload-container">
             <p style={style2}>Upload Avatar</p>
-            <label htmlFor="file-upload" className="upload-label">
+            {/* conditional rendering to display image preview */}
+            {!preview ? 
+              <label htmlFor="file-upload" className="upload-label">
+              
               <img src={uploadIcon} alt="Upload Icon"/>
               <span>Drag and drop or click to upload</span>
-            </label>
-            <input type="file" name="filename" id="file-upload"
+              
+              </label> : 
+
+              <div className='preview-cont'>
+                  <img className='imagePreview' src={preview} alt="Preview" width="200"/>
+                  <div className="button-cont">
+                    <button className="remove-btn">Remove image</button>
+                    <button className="edit-btn">Change image</button>
+                  </div> 
+                </div>
+            }
+            
+            <input accept="image/*" type="file" name="filename" id="file-upload"
               {...register("file",{
                 required:"Please upload a file",
                 validate:(files)=>{
@@ -38,10 +71,14 @@ const Form = () => {
                 }
               })}
             />
+
             <div className="upload-info">
               <img src="./assets/images/icon-info.svg" alt=""/>
               <span style={styles}>Upload your photo (JPG or PNG, max size: 500kb)</span>
+         
+              
             </div>
+         
             {errors.file && <div className="error-message">
                 <img src={iconInfo} className='icon-img' alt=""/>  {errors.file.message} 
                 </div> }
